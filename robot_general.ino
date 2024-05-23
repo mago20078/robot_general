@@ -1,3 +1,5 @@
+//esto es una prueba
+
 // Definición de variables y constantes relacionadas con el motor izquierdo
 const int BIA = 13;  // Pin digital 13 para controlar sentido giro motor izquierdo
 const int BIB = 12;  // Pin digital 12 para controlar sentido giro motor izquierdo
