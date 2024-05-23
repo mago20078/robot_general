@@ -1,5 +1,3 @@
-//esto es una prueba
-
 // Definición de variables y constantes relacionadas con el motor izquierdo
 const int BIA = 13;  // Pin digital 13 para controlar sentido giro motor izquierdo
 const int BIB = 12;  // Pin digital 12 para controlar sentido giro motor izquierdo
@@ -53,33 +51,21 @@ void loop() {
 
 
 /*
-  Función robotAvance: esta función hará que ambos motores se activen a máxima potencia
+  Función Avanza: esta función hará que ambos motores se activen a máxima potencia
   por lo que el robot avanzará hacia delante
 */
-void robotAvance() {
-  // Motor izquierdo
-  // Al mantener un pin HIGH y el otro LOW el motor gira en un sentido
-  digitalWrite (BIA, HIGH);
-  digitalWrite (BIB, LOW);
-  // Motor derecho
-  // Al mantener un pin HIGH y el otro LOW el motor gira en un sentido
-  digitalWrite (AIA, HIGH);
-  digitalWrite (AIB, LOW);
+void Avanza(){
+  analogWrite(PWM_AIA, 0);
+  analogWrite(PWM_BIB, 0);
+  analogWrite(PWM_AIB, veli);
+  analogWrite(PWM_BIA, veld);
   }
-/*
-  Función robotRetroceso: esta función hará que ambos motores se activen a máxima potencia 
-  en sentido contrario al anterior por lo que el robot avanzará hacia atrás
-*/
-void robotRetroceso() {
-  // Motor izquierdo
-  // Al mantener un pin LOW y el otro HIGH el motor gira en sentido contrario al anterior
-  digitalWrite (BIA, LOW);
-  digitalWrite (BIB, HIGH);
-  // Motor derecho
-  // Al mantener un pin LOW y el otro HIGH el motor gira en sentido contrario al anterior
-  digitalWrite (AIA, LOW);
-  digitalWrite (AIB, HIGH);
-  }
+void Retroceso(){
+  analogWrite(PWM_AIB, 0);
+  analogWrite(PWM_BIA, 0);
+  analogWrite(PWM_AIA, veli);
+  analogWrite(PWM_BIB, veld);
+}
 /*
   Función robotDerecha: esta función acccionará el motor izquierdo y parará el derecho
   por lo que el coche girará hacia la derecha (sentido horario)
